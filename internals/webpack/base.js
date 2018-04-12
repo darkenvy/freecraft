@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = options => ({
   entry: options.entry,
@@ -29,6 +30,9 @@ module.exports = options => ({
   },
   plugins: options.plugins.concat([
     new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify(process.env.NODE_ENV)}}),
+    new CopyWebpackPlugin([
+      { from: 'app/static/', to: 'static/', toType: 'dir' },
+    ]),
   ]),
   resolve: {
     modules: ['app', 'node_modules'],

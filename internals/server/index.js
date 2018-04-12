@@ -12,6 +12,7 @@ const options = {
 
 middleware(app, options);
 
+console.log(`Hosting on ${host || 'http://localhost'}:${port}`);
 app.listen(port, host, err => {
   if (err) console.error(err.message);
 });

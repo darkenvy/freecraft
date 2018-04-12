@@ -10,16 +10,12 @@ const middleware = webpackDevMiddleware(compiler, {
   silent: true,
   stats: 'errors-only',
 });
-const fs = middleware.filesystem;
-
-// function developmentMiddleware(app, options) {
-// }
 
 module.exports = (app, options) => {
-  // developmentMiddleware(app, options);
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
 
+  const fs = middleware.fileSystem;
   app.get('*', (req, res) => fs.readFile(
     path.join(compiler.outputPath, 'index.html'), (err, file) => err ? res.send(404) : res.send(file.toString())
   ));

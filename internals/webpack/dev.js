@@ -75,4 +75,5 @@ module.exports = require('./base')({
   plugins: dependencyHandlers().concat(plugins),
   devtool: 'eval-source-map', // Emit a source map for easier debugging. See https://webpack.js.org/configuration/devtool/#devtool
   performance: { hints: false },
+  mode: 'development',
 });

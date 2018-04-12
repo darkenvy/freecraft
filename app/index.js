@@ -1,26 +1,28 @@
-var voxel = require('voxel');
-var createGame = require('voxel-engine')
-var createPlayer = require('voxel-player')
+// const voxel = require('voxel');
+const createGame = require('voxel-engine');
+const createPlayer = require('voxel-player');
+const path = require('path');
+const texturePath = './static/textures/';
 
 // import voxel from 'voxel';
 // import createGame from 'voxel-engine';
 // import createPlayer from 'voxel-player';
 // Init ------------------- //
-var game = new createGame({
-  texturePath: './textures/',
+const game = new createGame({
+  texturePath,
   generate: (x, y) => y === 80 ? 1 : 0,
   chunkDistance: 1,
   worldOrigin: [0, 0, 0],
   fogDisabled: true,
   generateChunks: true,
   playerHeight: 1.8,
-})
-game.appendTo(document.body)
+});
+game.appendTo(document.body);
 
 // create the terrain
 // game.voxels.on('missingChunk', function(p) {
-  // var voxels = terrain(p, 32);
-  // var chunk = {
+  // const voxels = terrain(p, 32);
+  // const chunk = {
   //   position: p,
   //   dims: [32, 32, 32],
   //   voxels: voxels
@@ -28,6 +30,6 @@ game.appendTo(document.body)
   // game.showChunk(chunk);
 // });
 
-var player = new createPlayer(game)('textures/player.png')
-player.possess()
-player.yaw.position.set(0, 100, 0)
+const player = new createPlayer(game)(path.join(texturePath, 'player.png'));
+player.possess();
+player.yaw.position.set(0, 100, 0);
