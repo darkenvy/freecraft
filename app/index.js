@@ -2,6 +2,9 @@ var voxel = require('voxel');
 var createGame = require('voxel-engine')
 var createPlayer = require('voxel-player')
 
+// import voxel from 'voxel';
+// import createGame from 'voxel-engine';
+// import createPlayer from 'voxel-player';
 // Init ------------------- //
 var game = new createGame({
   texturePath: './textures/',
