@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify index.js -o bundle.js",
+    "build": "webpack --config internals/webpack/prod.js",
+    "old-build": "browserify index.js -o bundle.js",
     "start": "beefy index.js:bundle.js 8080 --live"
   },
   "keywords": [],
@@ -16,6 +17,11 @@
       "env"
     ]
   },
+  "dllPlugin": {
+    "path": "internals/dll",
+    "exclude": ["beefy"],
+    "include": []
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
@@ -23,6 +29,7 @@
     "beefy": "^2.1.8",
     "browserify": "^16.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.5",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.5.0",
     "webpack-bundle-analyzer": "^2.11.1",

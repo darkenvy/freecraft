@@ -1,12 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-
-const htmlWebpackPluginConfig = new htmlWebpackPlugin({
-  template: './app/index.html',
-  filename: 'index.html',
-  inject: 'body',
-});
 
 module.exports = options => ({
   entry: options.entry,
@@ -35,7 +28,6 @@ module.exports = options => ({
     ],
   },
   plugins: options.plugins.concat([
-    htmlWebpackPluginConfig,
     new webpack.DefinePlugin({'process.env': {NODE_ENV: JSON.stringify(process.env.NODE_ENV)}}),
   ]),
   resolve: {
