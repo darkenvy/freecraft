@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config internals/webpack/prod.js",
+    "build:dll": "webpack --display-chunks --color --config internals/webpack/dll.js --hide-modules",
     "old-build": "browserify index.js -o bundle.js",
     "start": "beefy index.js:bundle.js 8080 --live"
   },
@@ -19,21 +20,27 @@
   },
   "dllPlugin": {
     "path": "internals/dll",
-    "exclude": ["beefy"],
+    "exclude": [
+      "beefy"
+    ],
     "include": []
   },
   "devDependencies": {
+    "add-asset-html-webpack-plugin": "^2.1.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "beefy": "^2.1.8",
     "browserify": "^16.2.0",
+    "circular-dependency-plugin": "^5.0.1",
+    "glob": "^7.1.2",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.5",
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.5.0",
     "webpack-bundle-analyzer": "^2.11.1",
     "webpack-cli": "^2.0.14",
+    "webpack-dev-middleware": "^3.1.2",
     "webpack-hot-middleware": "^2.22.0"
   },
   "dependencies": {
