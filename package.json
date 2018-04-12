@@ -1,0 +1,23 @@
+{
+  "name": "voxeljs-test",
+  "version": "1.0.0",
+  "description": "http://voxeljs.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify index.js -o bundle.js",
+    "start": "beefy index.js:bundle.js 8080 --live"
+  },
+  "keywords": [],
+  "author": "Reno Mckenzie",
+  "license": "ISC",
+  "devDependencies": {
+    "beefy": "^2.1.8"
+  },
+  "dependencies": {
+    "browserify": "^16.2.0",
+    "voxel": "^0.5.0",
+    "voxel-engine": "^0.20.2",
+    "voxel-player": "^0.1.0"
+  }
+}
