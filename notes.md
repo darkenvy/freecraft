@@ -1,3 +1,5 @@
+const voxel = require('voxel');
+
 ## --- emitters --- //
 change-block
 dirtyChunkUpdate
