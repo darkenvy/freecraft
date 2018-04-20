@@ -1,4 +1,4 @@
-/* globals game */
+/* globals */
 /* eslint-disable prefer-rest-params */
 window.console.logOrig = window.console.logOrig || window.console.log;
 window.console.lastLog = null;
