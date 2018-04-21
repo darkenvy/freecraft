@@ -15,6 +15,8 @@ plugins.add('voxel-highlight', require('voxel-highlight'), {});
 
 plugins.add('voxel-reach', require('voxel-reach'), { reachDistance: 8 });
 plugins.add('voxel-mine', require('voxel-mine'), {});
+plugins.add('voxel-blockpack', require('voxel-blockpack'), {});
+
 // plugins.add('voxel-stitch', require('voxel-stitch'), { artpacks: ["http://localhost:3001/ProgrammerArt-v3.0-ResourcePack-MC19.zip"] });
 // plugins.add('voxel-mesher', require('voxel-mesher'), {});
 // plugins.add('voxel-decals', require('voxel-decals'), {});
@@ -37,6 +39,7 @@ player.yaw.position.set(0, 100, 0);
 // ------------------------------------------------------ ------------------- //
 const reach = plugins.get('voxel-reach');
 reach.on('use', target => {
+  console.log(target)
   if (target) game.createBlock(target.adjacent, 1);
 });
 
